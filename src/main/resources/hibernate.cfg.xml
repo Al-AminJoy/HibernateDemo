@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/shop_db</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!--        <property name="show_sql">true</property>-->
+
+        <!--        <property name="format_sql">true</property>-->
+        <!--use create for create table every time when program will run
+             this is used for test purpose -->
+       <property name="hbm2ddl.auto">create</property>
+        <!--use validate for not create table again and again.
+             this is used when app build complete-->
+       <!--  <property name="hbm2ddl.auto">validate</property>-->
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">100</property>
+        <property name="current_session_context_class">thread</property>
+
+        <mapping class="com.alamin.hibernatedemo.model.Product" />
+        <mapping class="com.alamin.hibernatedemo.model.Supplier" />
+    </session-factory>
+</hibernate-configuration>
